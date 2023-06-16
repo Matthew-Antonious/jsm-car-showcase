@@ -1,0 +1,63 @@
+npx create-next-app@latest ./
+3:10.28   LOOK AT page.tsx to edit the fuel and year listbox: is it label or placeholder??
+
+look at page.tsx, CustomFilters, 
+no esLint, no SRC directory, no aliases
+
+create component folder for everything that is not a ROUTE in next.js.
+Routes go in app folder.
+
+app/page.tsx: Homepage?
+
+Hero.tsx: hero section
+index.ts: export all of our components
+update globals.css and tailwind.config.js with Gist versions.
+
+CustomButton.tsx
+    "use client" is at the top of the file for client side rendering instead of standard next.js SSR.  Also if using hooks?
+
+    /* need to pass conditional props where the button is being used */
+
+types Folder: going to hold all of our TS interfaces? in the index.ts file. 
+    place where we need to define our props for typescript.
+
+utils for utility functions: Api..
+
+npm install @headlessui/react. unstyled Ui for tailwind.
+
+to get images from imagin API to prevent this error msg:
+Error: Invalid src prop (https://cdn/imagin.studio/getimage?customer=hrjavascript-mastery&make=toyota&modelFamily=corolla&zoomType=fullscreen&modelYear=1993&angle=undefined) on `next/image`, hostname "cdn" is not configured under images in your `next.config.js`:
+
+    const nextConfig = {
+    images: {
+        domains: ['cdn.imagin.studio']
+    }
+}
+then reload app for chaning the config file.
+
+const SearchButton = ({ otherClasses }: { otherClasses: string}) => (
+  <button type="submit" className={`-ml-3 z-10 ${otherClasses}`}>
+
+  </button>
+)
+    otherClasses is its props. TS wants it defined with the typeOf = the :
+    Does not need its own file because it is not going to be reUsed.
+
+CustomFilters.tsx: How to make the fuel and year unselectable options.
+
+
+<ShowMore on page.tsx
+    
+/>
+
+
+show more.tsx code:
+className="w-full flex-center gap-5 mt-10">
+        {!isNext && (
+            <CustomButton
+                title="Show More"
+                btnType='button'
+                containerStyles="bg-primary-blue rounded-full text-white"
+                handleClick={handleNavigation}
+            />
+        )}
